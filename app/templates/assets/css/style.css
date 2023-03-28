@@ -58,14 +58,14 @@ header section input{
 }
 header section nav input{
     width: 70%;
-    height: 30px;
+    height: 50px;
     padding: 5px;
     font-size: 20px;
     color: rgb(39, 39, 39);
 }
 header section nav button{
     width: 20%;
-    height: 45px;
+    height: 50px;
     font-size: 16px;
     color:white;
     background-color: #01ACD8;
@@ -75,7 +75,7 @@ header section nav button{
 }
 header section div input{
     width: 90%;
-    height: 25px;
+    height: 40px;
     padding: 5px;
     font-size: 18px;
     color: rgb(39, 39, 39);
