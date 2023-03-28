@@ -1,49 +1,48 @@
-
-function option(){
-    document.querySelector("#option1").style.display = 'none';
-    document.querySelector("#option2").style.display = 'inline';
-}
-function canceloption(){
-    document.querySelector("#option2").style.display = 'none';
-    document.querySelector("#option1").style.display = 'inline';
-}
 var xhr = new XMLHttpRequest();
-
 var split = String(window.location.href).split('/')
 var url = split[0] +"//"+ split[2];
 var exist = false;
+const regex = /^(http|https):\/\//;
 
 function encurtar(){
-    var compare = document.getElementById("option2");
-    var input = document.querySelector("#link");
-    var link = input.value;
-    var customy = document.querySelector("#custom").value;
-    var verific = link.substr(0, 4).toLowerCase()
-    if(verific == ""){
-        alert("Insira um link!")
+    let link = document.getElementById("link")
+    let apelido = document.getElementById("apelido")
+    var data;
+
+    verific = verific_link(link.value);
+    if (!verific[0]){
+        add_message(verific[1], 'danger')
         return
     }
 
-    if(verific == "http"){
-        var data;
-        if(compare.style.display !== "none") {
-            var data = JSON.stringify({
-                "redirect":`${link}`,
-                "key": `${customy}`
-                });
-
-        }else{
-            var data = JSON.stringify({
-                "redirect":`${link}`
-                });  
-        }
-        send(data);
+    if (apelido.value){
+        var data = JSON.stringify({
+        "redirect":`${link.value}`,
+        "key": `${apelido.value}`
+        });
     }else{
-        alert("o link deve conter http!")
+        var data = JSON.stringify({
+        "redirect":`${link.value}`
+        });  
+    }
+    show_div("s1", false);
+    send(data);
+}
+function verific_link(url){
+    if (regex.test(url)) {
+        return [true, 'teste'];
+    } else {
+        return [false, 'Para criar uma url encurtada, o site deverá ter http:// ou https:// '];
     }
 }
-
-
+function show_div(divid, option){
+    let div = document.getElementById(divid);
+    if (!option){
+        div.style.display = "none";
+        return
+    }
+    div.style.display = "flex";
+}
 function send(data){
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -56,6 +55,7 @@ function send(data){
                 if (xhr.responseText){
                     let string = xhr.responseText.replace('"', '').replace('"', '')
                     add_message(string, 'danger');
+                    new_link();
                 }
             }
             if (xhr.status == 202 && xhr.responseText){
@@ -68,64 +68,48 @@ function send(data){
     };
     xhr.send(data);
 }
-
 function set_message(json){
-    var myurl = json.key
-    var myclicks = json.clicks
-    var myadmin = json.secret_key
-
-    document.getElementById("awnser").style.visibility = "visible";
-    document.getElementById("idurl").innerText=`${url}/${myurl}`;
-    document.getElementById("idclicks").innerText=`${myclicks}`;
-    document.getElementById("idadmin").innerText=`${url}/${myadmin}`;
+    var myurl = json.key;
+    let input = document.getElementById("result");
+    input.value = url + "/" + myurl;
+    show_div("s2", true);
 }
-
+function new_link(){
+    show_div("s1", true);
+    show_div("s2", false);
+}
+function copiarTexto() {
+    let textoCopiado = document.getElementById("result");
+    textoCopiado.select();
+    textoCopiado.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    let button = document.getElementById("copy")
+    button.innerHTML = "LINK COPIADO!!"
+    setTimeout(function(){
+        button.innerHTML = "COPIAR"
+    }, 5000);
+}
 function add_message(message, type){
     if (exist){
         return
     }
+    let style = "width: 100%;min-height: 35px;display: flex;align-items: center;justify-content: center;border:none;border-radius: 6px;"
     let div = document.getElementById("messages")
     let newdiv = document.createElement('div');
     let label = document.createElement('label');
     newdiv.id = 'timeout';
     label.innerHTML = message;
     if (type == 'danger'){
-        newdiv.style="width: 100%;min-height: 35px;display: flex;align-items: center;justify-content: center;border:none;border-radius: 6px;color:white;margin-top:20px;color: #721c24;background-color: #f8d7da;border-color: #f5c6cb;"
+        newdiv.style= style + "color: #721c24;background-color: #f8d7da;border-color: #f5c6cb;"
     }else if (type == 'warning'){
-        newdiv.style="width: 100%;min-height: 35px;display: flex;align-items: center;justify-content: center;border:none;border-radius: 6px;color:white;margin-top:20px;color: #856404;background-color: #fff3cd;border-color: #ffeeba;"
+        newdiv.style= style + "color: #856404;background-color: #fff3cd;border-color: #ffeeba;"
     }
     newdiv.appendChild(label)
     div.appendChild(newdiv);
-    timeout = setTimeout(delete_message, 3000);
     exist = true;
-
-
-function delete_message(){
-    let div = document.getElementById("timeout");
-    div.parentNode.removeChild(div);
-    exist = false
+    timeout = setTimeout(function(){
+        let div = document.getElementById("timeout");
+        div.parentNode.removeChild(div);
+        exist = false
+    }, 5000);
 }
-}
-
-
-function MediaQuery(x) {
-    // if (x.matches) { // If media query matches
-    //   null
-    // } else {
-
-    // let container = document.createElement('div');
-    // container.id = "ctn";
-    // let section1 = document.getElementById('sessao1')
-    
-
-    // var pai = document.getElementById("sessao1");
-    // console.log(pai.children.length)
-    
-    // for(var i = 0; i < pai.children.length; i++){
-    //     container.appendChild(pai.children[i])
-    // }
-
-    // section1.appendChild(container)
-    // }
-  }
-  

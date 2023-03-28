@@ -1,214 +1,223 @@
-@import url('https://fonts.googleapis.com/css2? família=Poppins:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,500;1,600;1,700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 body{
-    background-color: black;
-}
-main{
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-}
-#sessao1{
-    margin-top: 20%;
-    height: 80%;
-}
-html{
-    scroll-behavior: smooth;
-}
-.amarelo-cor{
-    color: #fccb00;
-}
-.branco-cor{
-    color: white;
-}
-.font-popp{
-    font-family: 'Poppins-ExtraBold', sans-serif;
-    font-weight: 800;
-}
-.tamanho-one{
-    font-size: 72px;
-}
-.font-second{
-    font-family: 'Poppins-SemiBold', sans-serif;
-    font-weight: 600;
-}
-.tamanho-second{
-    font-size: 20px;
-}
-.style-input{
-    height: 50px;
-    width: 500px;
-    background-color: #303030;
-    border: #fccb00 solid 1px;
-    border-radius: 4px;
-    text-align: center;
-    color: white;
-    margin-top: 10%;
-}
-.style-input:-webkit-autofill {
-    background-color: #fccb00;
-    -webkit-box-shadow: 0 0 0 30px white inset;
-    border-color: antiquewhite;
-}
-
-
-.two-input{
-    height: 30px;
-    width: 150px;
-    background-color: #303030;
-    border: #fccb00 solid 1px;
-    border-radius: 4px;
-    text-align: center;
-    color: white;
-}
-.two-input:-webkit-autofill {
-    background-color: #fccb00;
-    -webkit-box-shadow: 0 0 0 30px white inset;
-    border-color: antiquewhite;
-}
-
-#btnopt{
-    width: 100px;
-    height: 30px;
-    background-color: #fccb00;
-    border: none;
-}
-#btnopt:hover{
-    background-color: #e6b802;
-    color: white;
-}
-#btnopt:active{
-    background-color: white;
-}
-#optional{
-    width: 100%;
-    margin-top: 2%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-#cancelopt{
-    width: 50px;
-    height: 30px;
-    color: white;
-    background-color: red;
-    border: none;
-    border-radius: 4px;
-}
-#cancelopt:hover{
-    background-color: rgb(226, 2, 2);
-
-}
-#cancelopt:active{
-    background-color: rgb(158, 1, 1);
-}
-
-.style-button{
-    width: 100px;
-    height: 55px;
-    background-color: #fccb00;
-    color: black;
-    border:none;
-    border-radius: 8px;
-}
-.style-button:hover{
-    color: white;
-}
-.alinha-direita{
-    text-align: end;
-}
-
-.container{
-    margin-top: 20px;
-    display: flex;
-    justify-content: start;
-    gap: 10px;
-}
-.circulo{
-    width: 15px;
-	height: 15px;
-	border-radius: 50%;
-	overflow: hidden;
-	transition: 0.3s ease;
-    background-color: #fccb00;
-}
-.circulo:hover{
-	transform: rotateY(180deg);
-    background-color: #e6b802;
-}
-.passar{
-    display: flex;
-    justify-content: center;
-}
-.circulo-dois{
-    width: 80px;
-	height: 80px;
-	border-radius: 50%;
-	overflow: hidden;
-	transition: 0.3s ease;
-	background-color: #fccb00;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 34px;
-    font-weight: 800;
-}
-.circulo-dois:hover{
-	transform: rotateY(180deg);
-    background-color: #e6b802;
-    color: white;
-}
-.text-gerado{
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-}
-#sessao2{
     width: 100%;
     height: 100%;
-    position: relative;
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eee;
+    background-color: red;
+}
+h1{
+    font-size: 60px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 1px #001b22;
+    font-family: 'Poppins','Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+h2{
+    font-weight: 400;
+    font-size: 30px;
+    color: white;
+    font-family: 'Poppinis','Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
 }
 header{
     width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-nav{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 5%;
-}
-article{
-    display: flex;
-    margin-bottom: 50px;
-}
-.texts{
-    width: 500px;
-    margin-top: 5%;
+    height: 50vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
-    color: white;
-    margin-left: 20px;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #0d86a4;
+}
+header article {
+    margin-top: 5vh;
+    margin-bottom: 20px;
+}
+header section{
+    width: 40%;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: transparent;
+    /* border: 1px solid black; */
+}
+
+header section article h1{
+    text-align: center;
+}
+header section input{
+    border-radius: 4px;
+}
+header section nav input{
+    width: 70%;
+    height: 30px;
+    padding: 5px;
+    font-size: 20px;
+    color: rgb(39, 39, 39);
+}
+header section nav button{
+    width: 20%;
+    height: 45px;
+    font-size: 16px;
+    color:white;
+    background-color: #01ACD8;
+    border-radius: 4px;
+    border:none;
+    cursor: pointer;
+}
+header section div input{
+    width: 90%;
+    height: 25px;
+    padding: 5px;
+    font-size: 18px;
+    color: rgb(39, 39, 39);
+}
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eee;
+}
+main section{
+    width: 90%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: transparent;
 
 }
-.image img{
+main section nav {
+    display: flex;
+    gap: 15px;
+
+}
+main section nav div{
+    width: 25%;
+    display:flex;
+}
+main section nav div article{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+    background-color: #f3f3f3;
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+main section nav div article label{
+
+    font-size: 20px;
+    font-family: Poppinis;
+}
+
+main section nav div img{
     width: 200px;
     border-radius: 50%;
 }
+#s2{
+    display: flex;
+    flex-direction: column;
+}
+#s2 div input{
+    width: 70%;
+    height: 60px;
+    font-size: larger;
+    text-align: center;
+}
+#s2 div button{
+    width: 20%;
+    height: 70px;
+    font-size: 16px;
+    color:white;
+    background-color: #01ACD8;
+    border-radius: 4px;
+    border:none;
+    cursor: pointer;
+}
+#s2 button{
+    margin-top: 15px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: white;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    font-family: 'Poppinis','Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+#messages{
+    width: 40%;
+}
 
-@media (max-width: 40000){
-    #sessao1{
-        background-color: red;
-
+@media (max-width: 574px){
+    header{
+        background-size: 100%;
+    }
+    header article{
+        margin-bottom: 0px;
+    }
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        text-align: center;
+    }
+    header section{
+        width: 100%;
+    }
+    #s1 nav, #s1 div{
+        margin-left: 10px;
+    }
+    header section div h2{
+        text-shadow: 2px 1px #001b22;
+    }
+    header section nav input{
+        height: 50px;
+    }
+    header section div input{
+        height: 40px;
+    }
+    main section h2{
+        font-size: 20px;
+    }
+    main section nav {
+        flex-direction: column;
+    }
+    main section nav div{
+        width: 100%;
+    }
+    main section nav div article label{
+        font-size: 16px;
+    }
+    main section nav div article img{
+        max-width: 100px;
+    }
+    main section nav div article p{
+        font-size: 14px;
+    }
+    #s2 div input, #s2 div button{
+        width: 100%;
+    }
+    #messages{
+        width: 100%;
+        padding: 10px;
     }
 }

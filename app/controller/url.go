@@ -46,6 +46,7 @@ func Create(c *gin.Context) {
 		c.JSON(202, url)
 		return
 	}
+
 	err = db.Where("Key = ?", url.Key).First(&url).Error
 	if err == nil {
 		c.JSON(400, "Esse apelido já existe! Tente outro.")
