@@ -26,5 +26,5 @@ func (server *Server) Run() {
 	server.router.StaticFS("/assets", http.Dir("templates/assets"))
 	router := routes.ConfigRoutes(server.router)
 	fmt.Println("O server está rodando na porta:", server.port)
-	log.Fatal(router.Run("0.0.0.0:" + *&server.port))
+	log.Fatal(router.Run(":" + *&server.port))
 }
