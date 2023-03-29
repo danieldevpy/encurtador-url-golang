@@ -16,7 +16,7 @@ type Server struct {
 
 func NewServer() Server {
 	return Server{
-		port:   "8080",
+		port:   "8090",
 		router: gin.Default(),
 	}
 }
