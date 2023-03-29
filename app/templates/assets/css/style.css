@@ -102,10 +102,12 @@ main section{
 main section nav {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
 }
 main section nav div{
-    width: 25%;
+    max-width: 400px;
     display:flex;
 }
 main section nav div article{
@@ -166,8 +168,18 @@ main section nav div img{
 #messages{
     width: 40%;
 }
-
-@media (max-width: 574px){
+@media (max-width: 1200px){
+    header section{
+        width: 60%;
+    }
+    main section{
+        width: 100%;
+    }
+    main section nav div{
+        max-width: 300px;
+    }
+}
+@media (max-width: 800px){
     header{
         background-size: 100%;
     }
@@ -202,6 +214,10 @@ main section nav div img{
         flex-direction: column;
     }
     main section nav div{
+        width: 100vh;
+        max-width: 100%;
+    }
+    main section nav div article{
         width: 100%;
     }
     main section nav div article label{
