@@ -6,6 +6,8 @@ import (
 	"net/http"
 
 	"github.com/danieldevpy/encurtador-golang/app/server/routes"
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,6 +24,8 @@ func NewServer() Server {
 }
 
 func (server *Server) Run() {
+	store := cookie.NewStore([]byte("secret"))
+	server.router.Use(sessions.Sessions("mysession", store))
 	server.router.LoadHTMLGlob("templates/html/**")
 	server.router.StaticFS("/assets", http.Dir("templates/assets"))
 	router := routes.ConfigRoutes(server.router)

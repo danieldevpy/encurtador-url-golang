@@ -18,6 +18,7 @@ func Redirect(c *gin.Context) {
 	err := db.Where("Key = ?", request).First(&url).Error
 	if err != nil {
 		c.Redirect(http.StatusFound, "/")
+		return
 	}
 	c.Redirect(http.StatusFound, url.Redirect)
 	url.Clicks = url.Clicks + 1

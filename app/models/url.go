@@ -8,5 +8,7 @@ type Url struct {
 	SecretKey string    `json:"secret_key"`
 	Redirect  string    `json:"redirect"`
 	Clicks    int32     `json:"clicks"`
+	User      *User     `json:"user"`
+	UserID    *int      `json:"user_id"`
 	UpdatedAt time.Time `json:"updated"`
 }

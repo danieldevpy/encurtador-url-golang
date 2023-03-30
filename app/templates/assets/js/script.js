@@ -16,6 +16,19 @@ function encurtar(){
     }
 
     if (apelido.value){
+        if (apelido.value.length < 3){
+            add_message('O apelido deve conter 3 ou mais caracters!', 'danger')
+            return
+        }
+        if (apelido.value.length > 10){
+            add_message('O apelido deve conter 10 ou menos caracters!', 'danger')
+            return
+        }
+        var padrao = /^[a-zA-Z0-9]+$/;
+        if (!padrao.test(apelido.value)){
+            add_message('O apelido não pode conter caracters especiais!', 'danger')
+            return
+        }
         var data = JSON.stringify({
         "redirect":`${link.value}`,
         "key": `${apelido.value}`
@@ -35,6 +48,7 @@ function verific_link(url){
         return [false, 'Para criar uma url encurtada, o site deverá ter http:// ou https:// '];
     }
 }
+
 function show_div(divid, option){
     let div = document.getElementById(divid);
     if (!option){
